@@ -1,0 +1,26 @@
+<div class="pt__main overflow-hidden">
+  <!-- Top header-->
+  <app-top-header></app-top-header>
+
+  <!--  Messages panel-->
+  <div class="">
+    <div class="date__bubble">
+      Today
+    </div>
+
+    <div class="message--container">
+      <div *ngFor="let message of messages">
+        <div class="message message--sent pt__p">
+          <h1 class="pt__header pt__p-bold">{{message.title}}</h1>
+          <p class="">{{message.message}}</p>
+        </div>
+        <div class="message message--received pt__p">
+          <h1 class="pt__header pt__p-bold">{{message.title}}</h1>
+          <p class="">{{message.reply}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-nav-bar></app-nav-bar>

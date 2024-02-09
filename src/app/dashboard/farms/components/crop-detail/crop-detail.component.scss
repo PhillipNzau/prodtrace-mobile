@@ -1,0 +1,72 @@
+@import "colors";
+@import "typography";
+
+.pt__crop-detail {
+  background-color: white;
+  min-height: 15rem;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  padding: 2rem 1rem;
+}
+
+.pt__location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.pt__map {
+  max-height: 18rem;
+  max-width: 100%;
+}
+////////////////////
+.input-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 5rem;
+  border: 1px solid #8B8B94;
+  border-radius: 1rem;
+  padding: 0 2rem;
+  background-color: transparent;
+
+  font-size: 1.6rem;
+  color: $color-primary;
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+
+  &:hover {
+    border: 1px solid #8B8B94;
+  }
+}
+
+.dropdown {
+  .show {
+    width: 100% !important;
+    li {
+      padding: 0 .5rem;
+      a {
+        padding: 1rem .5rem;
+        color: $color-primary;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+
+//////// leaflet Map
+#map {
+  height: 18rem;
+  max-width: 100%;
+}
+
+////////////////////////////

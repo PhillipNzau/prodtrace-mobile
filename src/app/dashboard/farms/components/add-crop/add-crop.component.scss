@@ -1,0 +1,41 @@
+@import "colors";
+@import "typography";
+
+.input-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 5rem;
+  border: 1px solid #8B8B94;
+  border-radius: 1rem;
+  padding: 0 2rem;
+  background-color: transparent;
+
+  font-size: 1.6rem;
+  color: $color-primary;
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+
+  &:hover {
+    border: 1px solid #8B8B94;
+  }
+}
+
+.dropdown {
+  .show {
+    width: 100% !important;
+    li {
+      padding: 0 .5rem;
+      a {
+        padding: 1rem .5rem;
+        color: $color-primary;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div class="pt__main pt__main--no-nav">
+  <!-- The header-->
+  <app-top-header></app-top-header>
+
+  <!-- Profile Picture-->
+  <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()">
+    <div class="pt__center">
+      <div class="pt__form-group ">
+
+        <label class="custom-file-uploads" for="cImage">
+          <svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M51.5 26.1094C55.7492 26.1094 59.903 27.3694 63.4361 29.7302C66.9692 32.0909 69.7229 35.4463 71.349 39.3721C72.9751 43.2978 73.4006 47.6176 72.5716 51.7852C71.7426 55.9527 69.6964 59.7809 66.6918 62.7855C63.6871 65.7902 59.859 67.8363 55.6914 68.6653C51.5238 69.4943 47.204 69.0688 43.2783 67.4427C39.3525 65.8166 35.9971 63.0629 33.6364 59.5298C31.2757 55.9968 30.0156 51.843 30.0156 47.5938C30.0156 44.7724 30.5713 41.9787 31.651 39.372C32.7307 36.7654 34.3132 34.397 36.3082 32.402C38.3032 30.407 40.6717 28.8245 43.2783 27.7448C45.8849 26.6651 48.6786 26.1094 51.5 26.1094ZM74.9375 20.25H82.75V28.0625C82.75 29.0985 83.1616 30.0921 83.8941 30.8247C84.6267 31.5572 85.6203 31.9688 86.6563 31.9688C87.6923 31.9688 88.6858 31.5572 89.4184 30.8247C90.151 30.0921 90.5625 29.0985 90.5625 28.0625V20.25H98.375C99.411 20.25 100.405 19.8385 101.137 19.1059C101.87 18.3733 102.281 17.3798 102.281 16.3438C102.281 15.3078 101.87 14.3142 101.137 13.5816C100.405 12.8491 99.411 12.4375 98.375 12.4375H90.5625V4.62502C90.5625 3.58902 90.151 2.59545 89.4184 1.86288C88.6858 1.13032 87.6923 0.718768 86.6563 0.718768C85.6203 0.718768 84.6267 1.13032 83.8941 1.86288C83.1616 2.59545 82.75 3.58902 82.75 4.62502V12.4375H74.9375C73.9015 12.4375 72.9079 12.8491 72.1754 13.5816C71.4428 14.3142 71.0313 15.3078 71.0313 16.3438C71.0313 17.3798 71.4428 18.3733 72.1754 19.1059C72.9079 19.8385 73.9015 20.25 74.9375 20.25ZM97.1836 40.2481C96.1604 40.4103 95.2436 40.9724 94.6347 41.8106C94.0259 42.6488 93.7749 43.6945 93.9371 44.7177C94.2913 46.9611 94.469 49.2288 94.4688 51.5C94.477 62.0185 90.6109 72.1716 83.6085 80.0206C80.4727 75.4775 76.4063 71.6535 71.6793 68.8025C66.2437 73.9939 59.0164 76.8906 51.5 76.8906C43.9836 76.8906 36.7564 73.9939 31.3207 68.8025C26.5937 71.6535 22.5273 75.4775 19.3915 80.0206C13.8861 73.8326 10.2875 66.1847 9.0295 57.9983C7.77148 49.8118 8.90764 41.4363 12.3011 33.8808C15.6945 26.3254 21.2004 19.9124 28.1554 15.4147C35.1103 10.917 43.2175 8.52654 51.5 8.53127C53.7713 8.53104 56.0391 8.70881 58.2825 9.06294C58.7892 9.14328 59.3068 9.12303 59.8056 9.00334C60.3045 8.88366 60.7748 8.66688 61.1899 8.36539C61.605 8.0639 61.9566 7.6836 62.2247 7.24621C62.4928 6.80883 62.6721 6.32291 62.7524 5.81623C62.8326 5.30954 62.8123 4.792 62.6926 4.29316C62.5728 3.79432 62.356 3.32396 62.0545 2.90892C61.7529 2.49389 61.3726 2.14231 60.9352 1.87428C60.4978 1.60624 60.0118 1.42699 59.5051 1.34676C52.2517 0.195768 44.8349 0.630526 37.7656 2.6211C30.6963 4.61167 24.1425 8.11077 18.5553 12.8774C12.9681 17.6441 8.48044 23.565 5.40126 30.2326C2.32209 36.9001 0.72458 44.1558 0.718754 51.5C0.715941 58.5462 2.18312 65.5155 5.02651 71.9625C7.86991 78.4095 12.027 84.1925 17.2321 88.9417C17.4255 89.159 17.6427 89.3538 17.8797 89.5225C27.1503 97.7426 39.1111 102.282 51.5012 102.281C63.8912 102.281 75.8519 97.7416 85.1222 89.5211C85.3573 89.3534 85.5729 89.1599 85.7651 88.9444C90.971 84.195 95.1288 78.4118 97.9727 71.9643C100.817 65.5168 102.284 58.5469 102.281 51.5C102.281 48.8193 102.071 46.1427 101.653 43.4949C101.573 42.9881 101.394 42.5021 101.126 42.0647C100.858 41.6272 100.506 41.2469 100.091 40.9454C99.6761 40.6438 99.2057 40.4271 98.7068 40.3074C98.2079 40.1878 97.6903 40.1676 97.1836 40.2481Z" fill="#004737"/>
+          </svg>
+          <p class="text-center mt-3">Add photo</p>
+        </label>
+        <input type="file" name="farm" id="cImage">
+      </div>
+    </div>
+    <div class="pt__form-group">
+      <label for="fName">First Name</label>
+      <input
+        [ngClass]="{'is-invalid':  f['first_name'].dirty && f['first_name'].errors}"
+        type="text" formControlName="first_name" id="fName">
+
+      <div *ngIf=" f['first_name'].touched && f['first_name'].dirty && f['first_name'].errors" class="alert alert-danger">
+        <div *ngIf="f['first_name'].errors['required']">First Name is required</div>
+        <div *ngIf="f['first_name'].errors['minlength']">
+          First Name must be at least 3 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="pt__form-group">
+      <label for="lName">Last Name</label>
+      <input
+        [ngClass]="{'is-invalid':  f['last_name'].dirty && f['last_name'].errors}"
+        type="text" formControlName="last_name" id="lName">
+
+      <div *ngIf="  f['last_name'].touched &&  f['last_name'].dirty &&  f['last_name'].errors" class="alert alert-danger">
+        <div *ngIf=" f['last_name'].errors['required']">Last Name is required</div>
+        <div *ngIf=" f['last_name'].errors['minlength']">
+          Last Name must be at least 3 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="pt__form-group">
+      <label for="pNumber">Phone Number</label>
+      <input
+        [ngClass]="{'is-invalid':  f['phone_number'].dirty && f['phone_number'].errors}"
+        type="tel" formControlName="phone_number" id="pNumber">
+      <div *ngIf="f['phone_number'].touched &&  f['phone_number'].dirty &&  f['phone_number'].errors" class="alert alert-danger">
+        <div *ngIf=" f['phone_number'].errors['required']">Phone number is required</div>
+        <div *ngIf=" f['phone_number'].errors['minlength']">
+          Phone number should have 10 characters
+        </div>
+        <div *ngIf=" f['phone_number'].errors['maxlength']">
+          Phone number should have 10 characters
+        </div>
+      </div>
+    </div>
+
+    <button class="btn pt__btn mt-3" >Save</button>
+
+  </form>
+</div>
+<!--<app-nav-bar></app-nav-bar>-->

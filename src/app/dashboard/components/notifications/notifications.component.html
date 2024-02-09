@@ -1,0 +1,111 @@
+<div class="pt__main">
+  <!-- Top header-->
+  <app-top-header></app-top-header>
+
+  <!-- View Services-->
+  <div class="pt__farms__services">
+    <!-- The Notifications-->
+    <div class="pt__container-white">
+      <div class="pt__container-white-child pt__center">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/document.png" alt="Document img">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">Export License</p>
+            <p class="pt__p">07 January 2021</p>
+          </div>
+        </div>
+        <div class="pt__status__tab pt__status__tab-success">
+          <p>Processing...</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="pt__container-white">
+      <div class="pt__container-white-child pt__center" (click)="isOpen()">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/document.png" alt="Document img">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">Export License</p>
+            <p class="pt__p">07 January 2021</p>
+          </div>
+        </div>
+        <div class="pt__status__tab pt__status__tab-success">
+          <p>Processing...</p>
+        </div>
+      </div>
+      <div *ngIf="isOpened"  [@inOutAnimation]>
+        <hr>
+        <div class="pt__farms__services__list-item-process">
+          <div class="pt__farms__services__list-item-process-icons">
+            <img src="/assets/img/tick.png" alt="Ticked img">
+            <p class="pt__p">Received</p>
+          </div>
+
+          <div class="dotted-line"></div>
+
+          <div class="pt__farms__services__list-item-process-icons">
+            <img src="/assets/img/tick.png" alt="Ticked img">
+            <p class="pt__p">Processing</p>
+          </div>
+
+          <div class="dotted-line"></div>
+
+          <div class="pt__farms__services__list-item-process-icons">
+            <div class="pt__circle pt__circle-blank"></div>
+            <p class="pt__p">Approved</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="pt__container-white">
+      <div class="pt__container-white-child pt__center">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/document.png" alt="Document img">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">Export License</p>
+            <p class="pt__p">07 January 2021</p>
+          </div>
+        </div>
+        <div class="pt__status__tab pt__status__tab-pending">
+          <p>Processing...</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="pt__container-white">
+      <div class="pt__container-white-child pt__center">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/document.png" alt="Document img">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">Export License</p>
+            <p class="pt__p">07 January 2021</p>
+          </div>
+        </div>
+        <div class="pt__status__tab pt__status__tab-success">
+          <p>Processing...</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="pt__container-white">
+      <div class="pt__container-white-child pt__center">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/document.png" alt="Document img">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">Export License</p>
+            <p class="pt__p">07 January 2021</p>
+          </div>
+        </div>
+        <div class="pt__status__tab pt__status__tab-rejected">
+          <p>Rejected</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-nav-bar></app-nav-bar>

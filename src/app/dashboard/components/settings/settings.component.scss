@@ -1,0 +1,17 @@
+@import "colors";
+@import "typography";
+
+.pt__settings {
+  &__container {
+    margin: 1rem 0 3rem 0;
+  }
+
+  &__items {
+    height: 7rem;
+    border-bottom: 2px solid $color-gray-light;
+
+    &:hover {
+      background-color: $color-gray-light ;
+    }
+  }
+}

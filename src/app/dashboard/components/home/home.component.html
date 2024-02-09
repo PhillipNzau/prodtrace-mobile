@@ -1,0 +1,87 @@
+<div class="pt__main">
+  <!-- Top header-->
+  <app-top-header></app-top-header>
+
+  <!-- View Farms-->
+  <div class="pt__farms__container">
+    <!-- Top label-->
+    <div class="pt__farms__header">
+      <p class="pt__farms__header__paragraph">Farms</p>
+      <div class="pt__farms__header__link" [routerLink]="['/farms']" >
+        <p>
+          View all
+        </p>
+        <img src="/assets/img/back.svg"
+             alt="Caret left">
+      </div>
+    </div>
+    <!-- The slider-->
+    <swiper
+      [slidesPerView]="'auto'"
+      [spaceBetween]="10">
+
+      <ng-template swiperSlide *ngFor="let farm of farms$">
+        <div class="pt__farms__item"
+             [routerLink]="['farms/selected-farm/', farm.id]">
+          <img src="/assets/img/kilgoris-1.png" alt="Kilgoris">
+          <h5>{{farm?.name}}</h5>
+          <h6 class="pt__text--limit">{{farm?.location}}</h6>
+        </div>
+      </ng-template>
+
+    </swiper>
+  </div>
+
+  <!-- View Services-->
+  <div class="pt__farms__services">
+    <!-- Top label-->
+    <div class="pt__farms__header">
+      <p class="pt__farms__header__paragraph">Recent Activities</p>
+    </div>
+
+    <!-- The services-->
+    <div class="pt__farms__services__list" *ngFor="let plantCycle of plantCycle">
+      <div class="pt__container-white" id="wrapper_1"
+           data-bs-toggle="modal"
+           data-bs-target="#viewCropActivity" (click)="getCropCycleFarm(plantCycle.farm_crop_id, plantCycle.activity_type, plantCycle.description)">
+        <div class="pt__container-white-child pt__center">
+          <div class="d-flex align-items-center ">
+<!--            <img src="/assets/img/document.png" alt="Document img">-->
+            <div class="ms-3">
+              <p class="pt__p pt__p-bold">{{plantCycle.activity_type}}</p>
+              <p class="pt__p">{{plantCycle.updated_at | date: 'mediumDate' }}</p>
+            </div>
+          </div>
+          <div class="pt__status__tab pt__status__tab-success">
+            <p>Current</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-nav-bar></app-nav-bar>
+
+<!--Modals-->
+<div class="modal fade"  id="viewCropActivity" tabindex="-1" aria-labelledby="editFarmCropHarvestStagesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="text-center w-100 pt__p pt__p-bold pt__p-lg">{{selectedFarmCrop?.farm?.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>{{cropCycleName}}</h1>
+
+        <p class="pt__p pt__p-md ">
+          {{cropCycleDescription}}
+        </p>
+        <div class="d-flex justify-content-between mt-5">
+          <button type="button" class="btn pt__btn pt__btn--close btn-secondary w-25" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

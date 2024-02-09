@@ -1,0 +1,51 @@
+<div class="pt__main">
+  <!-- Top header-->
+  <app-top-header></app-top-header>
+
+  <!--  Messages list-->
+  <div class="pt__farms__services__list">
+    <div
+      *ngFor="let chat of chats"
+      class="pt__container-white" id="wrapper_2"
+      [routerLink]="[chat.id]">
+      <div class="pt__container-white-child pt__center">
+        <div class="d-flex align-items-center ">
+          <img src="/assets/img/avatar.png" alt="Avatar">
+          <div class="ms-3">
+            <p class="pt__p pt__p-bold">{{chat.title}}</p>
+            <p class="pt__p pt__text--limit pt__text--limit--ext">{{chat.message}}</p>
+          </div>
+        </div>
+        <div class="rounded-5 p-2 pt__status__tab-success">
+          <p>4</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<app-nav-bar></app-nav-bar>
+
+<!--Modals-->
+<div class="modal fade"  id="viewCropActivity" tabindex="-1" aria-labelledby="editFarmCropHarvestStagesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="text-center w-100 pt__p pt__p-bold pt__p-lg">Planting Stage</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1> crop stage</h1>
+
+        <p class="pt__p pt__p-md ">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium vitae a lectus odio vulputate auctor. Dictumst sodales elit et.
+        </p>
+        <div class="d-flex justify-content-between mt-5">
+          <button type="button" class="btn pt__btn pt__btn--close btn-secondary w-25" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

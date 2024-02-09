@@ -1,0 +1,262 @@
+<div class="pt__main pt__main--no-nav">
+  <!--  Select Type of login-->
+  <div class="pt__auth__step-1 pt__auth" *ngIf="!showSignUp">
+    <!-- Heading text-->
+    <div>
+      <h1 class="pt__header-1">
+        Get Started
+      </h1>
+
+      <!--      <p class="pt__paragraph">-->
+      <!--        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet atque dolores ducimus excepturi.-->
+      <!--      </p>-->
+    </div>
+
+    <!-- Select auth option-->
+    <div>
+      <div
+        class="pt__auth__option"
+        [ngClass]="{'auth-active': isOption == 'farmer'}" (click)="optionSelected('farmer')">
+        <div class="d-flex align-items-center">
+          <img src="/assets/img/farmer.png" alt="Farmer img" class="pt__auth__option-img">
+          <h6>Farmer</h6>
+        </div>
+
+        <img src="/assets/img/tick.png" alt="Ticked img" *ngIf="isOption == 'farmer'">
+      </div>
+
+      <div
+        class=" pt__auth__option"
+        [ngClass]="{'auth-active': isOption == 'govt'}" (click)="optionSelected('govt')">
+
+        <div class="d-flex align-items-center">
+          <img src="/assets/img/government.png" alt="Government  img" class="pt__auth__option-img">
+          <h6>Agrigator</h6>
+        </div>
+
+        <img src="/assets/img/tick.png" alt="Ticked img" *ngIf="isOption == 'govt'">
+
+      </div>
+
+      <button class="btn pt__btn pt__auth__btn" (click)="isLoginType(isOption)" [ngClass]="{'in-active': !isOption}">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <!-- Signup / Login Form-->
+  <div class="pt__auth__step-2" *ngIf="showSignUp">
+    <!-- Header with back button-->
+    <div class="pt__header__container pt__header__container-padded">
+      <div class="pt__header__container__back" (click)="showSignUp = false">
+        <img src="/assets/img/back.svg" alt="Back">
+      </div>
+      <p class="pt__paragraph pt__header__p"> {{headerMsg}}</p>
+      <div class="pt__header__notification"></div>
+    </div>
+
+    <!-- Sign up form (ngSubmit)="signUpUser()"-->
+    <form *ngIf="isLoginSelected" [formGroup]="signUpForm" (ngSubmit)="signUpUser()">
+      <div class="pt__form-group">
+        <label for="fName">First Name</label>
+        <input
+          [ngClass]="{'is-invalid':  f['first_name'].dirty && f['first_name'].errors}"
+          type="text"
+          formControlName="first_name"
+          id="fName"
+        >
+        <div *ngIf=" f['first_name'].touched && f['first_name'].dirty && f['first_name'].errors"
+             class="alert alert-danger">
+          <div *ngIf="f['first_name'].errors['required']">First Name is required</div>
+          <div *ngIf="f['first_name'].errors['minlength']">
+            First Name must be at least 3 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="pt__form-group">
+        <label for="lName">Last Name</label>
+        <input [ngClass]="{'is-invalid':  f['last_name'].dirty && f['last_name'].errors}"
+               type="text" formControlName="last_name" id="lName">
+
+        <div *ngIf="  f['last_name'].touched &&  f['last_name'].dirty &&  f['last_name'].errors"
+             class="alert alert-danger">
+          <div *ngIf=" f['last_name'].errors['required']">Last Name is required</div>
+          <div *ngIf=" f['last_name'].errors['minlength']">
+            Last Name must be at least 3 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="pt__form-group">
+        <label for="email">Email</label>
+        <input [ngClass]="{'is-invalid':  f['email'].dirty && f['email'].errors}" type="email" formControlName="email"
+               id="email">
+        <div *ngIf="f['email'].touched &&  f['email'].dirty &&  f['email'].errors" class="alert alert-danger">
+          <div *ngIf=" f['email'].errors['required']">Email is required</div>
+          <div *ngIf=" f['email'].errors['email']">
+            Enter Valid Email
+          </div>
+        </div>
+      </div>
+
+      <div class="pt__form-group">
+        <label for="pNum">Phone Number</label>
+        <input [ngClass]="{'is-invalid':  f['phone_number'].dirty && f['phone_number'].errors}"
+               type="text" inputmode="numeric" formControlName="phone_number" id="pNum" pattern="[0-9]+" [(ngModel)]="userPhoneNumber">
+        <div *ngIf="f['phone_number'].touched &&  f['phone_number'].dirty &&  f['phone_number'].errors"
+             class="alert alert-danger">
+          <div *ngIf=" f['phone_number'].errors['required']">Phone number is required</div>
+          <div *ngIf=" f['phone_number'].errors['minlength']">
+            Phone number should have 10 characters
+          </div>
+          <div *ngIf=" f['phone_number'].errors['maxlength']">
+            Phone number should have 10 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="pt__form-group">
+        <label for="pass">Password</label>
+        <div class="d-flex align-items-center">
+          <input
+            [ngClass]="{'is-invalid':  f['password'].dirty && f['password'].errors}"
+            [type]="showPassword ? 'text' : 'password'" formControlName="password" id="pass">
+          <svg (click)="toggleShowPwd()" *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+
+          <svg (click)="toggleShowPwd()" *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>
+          </svg>
+        </div>
+
+        <div *ngIf="f['password'].touched &&  f['password'].dirty &&  f['password'].errors"
+             class="alert alert-danger">
+          <div *ngIf=" f['password'].errors['required']">Password is required</div>
+          <div *ngIf=" f['password'].errors['minlength']">
+            Password should have more than 4 characters
+          </div>
+          <div *ngIf=" f['password'].errors['maxlength']">
+            Password should have less than 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="pt__form-group">
+        <label for="cPass">Confirm Password</label>
+        <div class="d-flex align-items-center">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirm_password" id="cPass">
+          <svg (click)="toggleShowCPwd()" *ngIf="showConfirmPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+
+          <svg (click)="toggleShowCPwd()" *ngIf="!showConfirmPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>
+          </svg>
+        </div>
+        <div *ngIf="f['confirm_password'].touched && f['confirm_password'].dirty && f['confirm_password'].errors"
+             class="alert alert-danger">
+
+          <div *ngIf="f['confirm_password'].errors['required']">Password is required.</div>
+
+          <div *ngIf="f['confirm_password'].errors['confirmedValidator']">Password and Confirm Password must be match.
+          </div>
+
+        </div>
+
+      </div>
+
+      <button class="btn pt__btn"
+              [disabled]="signUpForm.invalid"
+              data-bs-toggle="modal"
+              data-bs-target="#enterOtp">Sign Up
+      </button>
+
+      <a class="btn pt__btn-alt" (click)="onSwitch()">Login</a>
+    </form>
+
+    <!-- Login form-->
+    <form *ngIf="!isLoginSelected" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <div class="pt__form-group">
+        <label for="uEmail">Email</label>
+        <input [ngClass]="{'is-invalid':  fl['email'].dirty && fl['email'].errors}"
+               type="email" formControlName="email" id="uEmail">
+        <div *ngIf="fl['email'].touched &&  fl['email'].dirty &&  fl['email'].errors" class="alert alert-danger">
+          <div *ngIf=" fl['email'].errors['required']">Email is required</div>
+          <div *ngIf=" fl['email'].errors['email']">
+            Enter Valid Email
+          </div>
+        </div>
+
+      </div>
+      <div class="pt__form-group">
+        <label for="pwd">Password</label>
+        <div class="d-flex align-items-center">
+          <input [ngClass]="{'is-invalid':  fl['password'].dirty && fl['password'].errors}"
+                 [type]="showPassword ? 'text' : 'password'" formControlName="password" id="pwd">
+          <svg (click)="toggleShowPwd()" *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+
+          <svg (click)="toggleShowPwd()" *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 eye-icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>
+          </svg>
+        </div>
+        <div *ngIf="fl['password'].touched &&  fl['password'].dirty &&  fl['password'].errors"
+             class="alert alert-danger">
+          <div *ngIf=" fl['password'].errors['required']">Password is required</div>
+          <div *ngIf=" fl['password'].errors['minlength']">
+            Password should have more than 4 characters
+          </div>
+          <div *ngIf=" fl['password'].errors['maxlength']">
+            Password should have less than 20 characters
+          </div>
+        </div>
+      </div>
+
+      <button class="btn pt__btn pt__auth__btn" [disabled]="loginForm.invalid">Log In</button>
+
+      <a class="btn pt__btn-alt" (click)="onSwitch()">signup</a>
+
+    </form>
+  </div>
+</div>
+
+<!--Modals-->
+<div class="modal fade" id="enterOtp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="enterOtpLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="text-center w-100 pt__p pt__p-bold pt__p-lg">Enter OTP</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="enterOtpForm" (ngSubmit)="enterOtp()">
+            <input type="text" inputmode="numeric" formControlName="otp" [(ngModel)]="optToken" pattern="[0-9]+">
+            <button class="btn pt__btn mt-5" [disabled]="enterOtpForm.invalid" data-bs-dismiss="modal">Verify Otp</button>
+        </form>
+        <div class="d-flex justify-content-between mt-5">
+          <button type="button" class="btn pt__btn pt__btn--close btn-secondary w-25" data-bs-dismiss="modal">Close
+          </button>
+          <p class="btn pt__btn-alt" (click)="resendOtp()">Resend OTP</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

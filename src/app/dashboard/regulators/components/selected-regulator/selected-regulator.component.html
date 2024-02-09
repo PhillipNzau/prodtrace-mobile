@@ -1,0 +1,57 @@
+<div class="pt__main">
+  <!-- The header-->
+  <app-top-header></app-top-header>
+
+  <!-- Top label-->
+  <div class="pt__logo-header__container pt__center mb-5">
+    <div class="pt__center text-center">
+      <img class="pt__header__logo mb-4"
+           ngSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ77QZnrRMd-nZ7gBLghKKZJMxy-1JLayFdePu-AAOe6a6-RvCFVtruXT70nIPP8nCzPvY&usqp=CAU"
+           width= 48
+           height=48
+           alt="HCD logo"
+           >
+      <p class="pt__p pt__p-sm pt__p-bold">Horticultural Crops Directorate (HCD)</p>
+    </div>
+  </div>
+
+  <p class="pt__p pt__p-bold pt__p-lg mb-2">Services</p>
+
+  <div class="pt__container-white pt__container-white-child pt__center" [routerLink]="['service', '1']">
+    <div class="d-flex align-items-center ">
+      <img ngSrc="/assets/img/document.png"
+           width= 30
+           height= 30
+           alt="Document img">
+      <div class="ms-4">
+        <p class="pt__p pt__p-bold">Regulations and Compliance</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt__container-white pt__container-white-child pt__center" [routerLink]="['service', '2']">
+    <div class="d-flex align-items-center ">
+      <img ngSrc="/assets/img/document.png"
+           width= 30
+           height= 30
+           alt="Document img">
+      <div class="ms-4">
+        <p class="pt__p pt__p-bold">Market Research and Product Development</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt__container-white pt__container-white-child pt__center" [routerLink]="['service', '3']">
+    <div class="d-flex align-items-center ">
+      <img ngSrc="/assets/img/document.png"
+           width= 30
+           height= 30
+           alt="Document img">
+      <div class="ms-4">
+        <p class="pt__p pt__p-bold">Technical and Advisory Services</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-nav-bar></app-nav-bar>

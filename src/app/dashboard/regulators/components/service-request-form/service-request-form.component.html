@@ -1,0 +1,75 @@
+<div style="position: relative;">
+  <div class="pt__main"  [ngClass]="{'blur-bg': formSent}">
+    <!-- The header-->
+    <app-top-header [currRouteName]="'Request Form'"></app-top-header>
+
+    <form >
+      <div class="pt__form-group">
+        <label for="fName">Farm Name</label>
+        <input type="text" name="farmName" id="fName">
+      </div>
+
+      <div class="pt__form-group">
+        <label for="cName">Crop</label>
+        <input type="text" name="crop" id="cName">
+      </div>
+
+      <div class="pt__form-group">
+        <label for="fArea">Farm Area</label>
+        <input type="text" name="farm" id="fArea">
+      </div>
+
+      <div class="pt__form-group">
+        <label for="fLocation">Farm Location</label>
+        <input type="text" name="location" id="fLocation">
+      </div>
+
+      <div class="pt__form-group">
+        <label for="rType">Request Type</label>
+        <input type="text" name="request" id="rType">
+      </div>
+
+      <button type="button" class="btn pt__btn mt-5" (click)="formSent = true">Send</button>
+    </form>
+  </div>
+
+  <app-nav-bar ></app-nav-bar>
+
+  <!--Payment modal-->
+  <div class="pt__payment__modal" *ngIf="formSent" [@slideInModalAnimation]>
+    <!-- Payment handlebar-->
+    <div class="pt__payment__modal__handle"></div>
+
+    <!-- Select payment option-->
+    <div class="pt__payment__modal__main">
+      <div
+        class="pt__auth__option"
+        [ngClass]="{'auth-active': isOption == 'mpesa'}" (click)="optionSelected('mpesa')">
+        <div class="d-flex align-items-center">
+          <img src="/assets/img/CheckCircle.svg" alt="Ticked svg" *ngIf="isOption == 'mpesa'">
+          <h6>Mpesa</h6>
+        </div>
+        <h6>KES 1500</h6>
+      </div>
+
+      <div
+        class="pt__auth__option"
+        [ngClass]="{'auth-active': isOption == 'other'}" (click)="optionSelected('other')">
+
+        <div class="d-flex align-items-center">
+          <img src="/assets/img/PlusCircle.svg" alt="Add svg" class="pt__auth__option-img">
+          <h6>Add Payment Method</h6>
+        </div>
+      </div>
+
+      <button class="btn pt__btn"  [ngClass]="{'in-active': !isOption}" >
+        Pay Now
+      </button>
+    </div>
+
+    <!-- Payment modal close btn-->
+    <div  class="pt__payment__modal__icon">
+      <img src="/assets/img/Delete.svg" alt="Ticked svg" (click)="formSent = false">
+    </div>
+  </div>
+</div>

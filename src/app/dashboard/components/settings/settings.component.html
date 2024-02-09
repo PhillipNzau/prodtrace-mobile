@@ -1,0 +1,82 @@
+<div class="pt__main pt__main--no-nav">
+  <!-- The header-->
+  <app-top-header></app-top-header>
+
+  <!-- List Farms-->
+ <section>
+   <p class="pt__p-gray pt__p-md">General</p>
+   <div class="pt__settings__container">
+     <div class="pt__settings__items pt__side justify-content-between">
+       <p class="pt__p-black pt__p-md">Language</p>
+
+       <div class="pt__side">
+         <p class="pt__p-gray pt__p-md me-4">English</p>
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <path d="M9 18L15 12L9 6" stroke="#7E848D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+         </svg>
+       </div>
+     </div>
+
+     <div class="pt__settings__items pt__side justify-content-between"  data-bs-toggle="modal" data-bs-target="#openChat">
+       <p class="pt__p-black pt__p-md">Contact Us</p>
+
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 18L15 12L9 6" stroke="#7E848D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+       </svg>
+     </div>
+   </div>
+
+   <p class="pt__p-gray pt__p-md">Security</p>
+   <div  class="pt__settings__container">
+     <div class="pt__settings__items pt__side justify-content-between">
+       <p class="pt__p-black pt__p-md">Change Password</p>
+
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 18L15 12L9 6" stroke="#7E848D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+       </svg>
+     </div>
+
+     <div class="pt__settings__items pt__side justify-content-between">
+       <p class="pt__p-black pt__p-md">Privacy Policy</p>
+
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 18L15 12L9 6" stroke="#7E848D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+       </svg>
+     </div>
+   </div>
+
+   <p class="pt__p-gray pt__p-md">Choose what data you share with us</p>
+ </section>
+</div>
+
+<!--<app-nav-bar></app-nav-bar>-->
+<!--Modals-->
+<div class="modal fade"  id="openChat" tabindex="-1" aria-labelledby="openChatLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="text-center w-100 pt__p pt__p-bold pt__p-lg">Send Message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="chatForm" (ngSubmit)="chatSubmit()">
+          <div class="pt__form-group">
+            <label>Title</label>
+            <input type="text" formControlName="title">
+          </div>
+
+          <div class="pt__form-group">
+            <label>Message</label>
+            <textarea rows="20" cols="50" formControlName="message" > </textarea>
+          </div>
+
+          <div class="d-flex justify-content-between mt-5">
+            <button type="button" class="btn pt__btn pt__btn--close btn-secondary w-25"
+                    data-bs-dismiss="modal">Close</button>
+            <button class="btn pt__btn w-50" data-bs-dismiss="modal">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

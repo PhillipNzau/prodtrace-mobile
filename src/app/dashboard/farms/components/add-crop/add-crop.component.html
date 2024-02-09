@@ -1,0 +1,36 @@
+<div class="pt__form__container">
+  <!-- The header-->
+  <app-top-header [currRouteName]="'Add Crop'"></app-top-header>
+  <form [formGroup]="addCropForm" (ngSubmit)="addFarmCrop()">
+    <div class="pt__form-group">
+      <label>Farm Name</label>
+      <input type="text" disabled placeholder="{{selectedFarm?.name}}">
+    </div>
+
+    <div class="pt__form-group">
+      <label>Crop Name</label>
+      <div class="dropdown w-100">
+        <a class="btn input-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span *ngIf="!selectedCropName">Choose Crop</span>
+          <ng-container *ngIf="selectedCropName">
+            {{selectedCropName}}
+          </ng-container>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+              </svg>
+        </a>
+
+        <ul class="dropdown-menu">
+          <li *ngFor="let crop of (crops$ | async)"><a class="dropdown-item" (click)="setCrop(crop)">{{crop?.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt__form-group">
+      <label>Farm Crop Size</label>
+      <input type="text" formControlName="farm_crop_size" placeholder="Enter Crop Area or Green House number">
+    </div>
+    <button class="btn pt__btn pt__btn--form" [disabled]="isLoading" >Next</button>
+  </form>
+</div>
+

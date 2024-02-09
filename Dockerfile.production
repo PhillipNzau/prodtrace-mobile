@@ -1,0 +1,22 @@
+FROM node:14
+RUN mkdir -p /home/prodtrace
+WORKDIR /home/prodtrace
+COPY package*.json ./
+
+RUN apt update -y
+RUN apt install nginx -y
+RUN npm install -g @angular/cli
+RUN npm install
+
+COPY . .
+
+RUN ng build  --configuration production
+RUN cp -R dist/prod-trace/ /var/www/html/
+RUN cp docker/ssl/fullchain1.pem /etc/ssl/certs/
+RUN cp docker/ssl/privkey1.pem /etc/ssl/private/
+RUN rm /etc/nginx/sites-available/default
+RUN cp docker/nginx/default /etc/nginx/sites-available/
+RUN service nginx start
+
+EXPOSE 80  443
+ENTRYPOINT service nginx start && tail -f /dev/null

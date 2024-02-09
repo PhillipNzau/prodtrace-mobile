@@ -1,0 +1,65 @@
+<div class="pt__main">
+  <div class="mt-5 pt-5">
+    <h1 class="pt__header-1 ">
+      Crop History
+    </h1>
+
+<!--    <p class="pt__paragraph">-->
+<!--      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet atque dolores ducimus excepturi.-->
+<!--    </p>-->
+  </div>
+
+  <div class="modal-body">
+    <div class="container left mb-5">
+<!--      <p class="pt__p pt__p-md ">-->
+<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium vitae a lectus odio vulputate auctor. Dictumst sodales elit et.-->
+<!--      </p>-->
+    </div>
+
+    <div class="pt__crop-detail">
+      <div class="pt__location">
+        <div>
+          <p class="pt__p pt__p-bold pt__p-md">Crop Name</p>
+          <p class="pt__p pt__p-bold pt__p-md">Farm Name</p>
+          <p class="pt__p pt__p-bold pt__p-md">Area</p>
+          <p class="pt__p pt__p-bold pt__p-md">Location</p>
+        </div>
+        <div>
+          <p class="pt__p pt__p-md">{{blockFarmCrop?.cropName}}</p>
+          <p class="pt__p pt__p-md">{{blockFarm?.name}}</p>
+          <p class="pt__p pt__p-md">{{blockFarm?.size}} sq</p>
+          <p class="pt__p pt__p-md pt__text--limit">{{blockFarm?.location}}</p>
+        </div>
+      </div>
+    </div>
+    <!--  <p class="pt__p pt__p-bold pt__p-lg">Crop stages</p>-->
+    <div >
+      <div class="pt__crop-detail" *ngFor="let cycle of plantingCycleStage">
+        <h2 class="pt__p pt__p-lg pt__p-bold">{{cycle?.activityType}} Stage</h2>
+        <p class="pt__p">{{cycle.activityName}}</p>
+        <p class="pt__p">- {{cycle.activityDescription}}</p>
+        <div class="mt-5">
+          <p  class="pt__p">{{cycle.time | unixTimestamp}} </p>
+        </div>
+      </div>
+
+      <div class="pt__crop-detail" *ngFor="let cycle of growthCycleStage">
+        <h2 class="pt__p pt__p-lg pt__p-bold">{{cycle?.activityType}} Stage</h2>
+        <p class="pt__p">{{cycle.activityName}}</p>
+        <p class="pt__p">- {{cycle.activityDescription}}</p>
+        <div class="mt-5">
+          <p  class="pt__p">{{cycle.time | unixTimestamp}} </p>
+        </div>
+      </div>
+
+      <div class="pt__crop-detail" *ngFor="let cycle of harvestCycleStage">
+        <h2 class="pt__p pt__p-lg pt__p-bold">{{cycle?.activityType}} Stage</h2>
+        <p class="pt__p">{{cycle.activityName}}</p>
+        <p class="pt__p">- {{cycle.activityDescription}}</p>
+        <div class="mt-5">
+          <p  class="pt__p">{{cycle.time | unixTimestamp}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

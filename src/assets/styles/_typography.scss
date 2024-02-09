@@ -1,0 +1,56 @@
+@import "colors";
+.pt__header {
+  font-size: 1.5rem;
+}
+
+.pt__header-1 {
+  text-align: center;
+  color: $color-primary;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 2.7rem;
+}
+
+.pt__paragraph {
+  text-align: center;
+  color: #000000;
+  font-size: 1.6rem;
+}
+
+.pt__p {
+  color: $color-primary;
+  font-size: 1.2rem;
+
+  &-gray {
+    color: #A2A2A7;
+  }
+
+  &-black {
+    color: #000000;
+  }
+
+  &-edit {
+    color: $color-tertiary;
+  }
+
+  &-bold {
+    font-weight: bold;
+  }
+
+  &-sm {
+    font-size: 1.2rem;
+  }
+
+  &-md {
+    font-size: 1.4rem;
+  }
+
+  &-lg {
+    font-size: 1.6rem;
+  }
+
+  &-mb {
+    margin-bottom: 2rem;
+  }
+}

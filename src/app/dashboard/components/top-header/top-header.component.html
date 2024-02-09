@@ -1,0 +1,83 @@
+<!-- Header with back button-->
+<div class="pt__header__container pt__header__container-padded">
+  <div class="pt__header__container__avatar" *ngIf="currRoute === '/'; else header">
+    <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+      <img src="/assets/img/avatar.png" alt="Avatar">
+    </a>
+    <p class="pt__header__avatar-p">{{userName | titlecase}}</p>
+  </div>
+
+  <ng-template #header>
+    <div class="pt__header__container__back" onclick="history.back()">
+      <img src="/assets/img/back.svg" alt="Back">
+    </div>
+
+    <p class="pt__p pt__p-lg pt__p-bold" *ngIf="!farmName">{{currRouteName | titlecase}}</p>
+    <p class="pt__p pt__p-lg pt__p-bold" *ngIf="farmName">{{farmName | titlecase}}</p>
+  </ng-template>
+
+
+  <div class="pt__header__notification" [routerLink]="['/notifications']">
+    <div class="notification-budge"></div>
+
+    <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.07684 22.4441H15.4614" stroke="#004737" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path
+        d="M3.48521 9.11086C3.48368 8.05666 3.69885 7.01259 4.1183 6.03884C4.53775 5.06509 5.1532 4.18091 5.92916 3.43728C6.70513 2.69364 7.62626 2.10525 8.63947 1.70602C9.65268 1.3068 10.7379 1.10463 11.8327 1.11118C16.4006 1.14388 20.0545 4.80017 20.0545 9.21129V9.99974C20.0545 13.9792 20.9191 16.2884 21.6806 17.5506C21.7626 17.6854 21.8062 17.8387 21.8071 17.995C21.808 18.1513 21.766 18.305 21.6855 18.4407C21.605 18.5764 21.4887 18.6893 21.3484 18.7679C21.2082 18.8465 21.0488 18.8881 20.8865 18.8885H2.65221C2.48989 18.8881 2.33055 18.8465 2.19027 18.7679C2.04998 18.6892 1.93372 18.5764 1.85319 18.4406C1.77267 18.3049 1.73075 18.1512 1.73164 17.9948C1.73254 17.8385 1.77623 17.6852 1.8583 17.5504C2.62021 16.2882 3.48521 13.979 3.48521 9.99974L3.48521 9.11086Z"
+        stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="offcanvas offcanvas-start pt__offcanvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <div class="pt__header__container__avatar" *ngIf="currRoute === '/'; else header">
+        <img src="/assets/img/avatar.png" alt="Avatar">
+        <p class="pt__header__avatar-p">{{userName | titlecase}}</p>
+      </div>
+      <svg data-bs-dismiss="offcanvas" aria-label="Close" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25 7L7 25" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M25 25L7 7" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="offcanvas-body p-0">
+      <div class="menu__container">
+        <div class="menu__container__items pt__side" [routerLink]="['./profile']">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 13.75C14.0376 13.75 16.5 11.2876 16.5 8.25C16.5 5.21243 14.0376 2.75 11 2.75C7.96243 2.75 5.5 5.21243 5.5 8.25C5.5 11.2876 7.96243 13.75 11 13.75Z" stroke="#004737" stroke-width="2" stroke-miterlimit="10"/>
+            <path d="M2.66315 18.5617C3.50839 17.0987 4.72377 15.8838 6.18717 15.0392C7.65058 14.1946 9.31048 13.75 11.0001 13.75C12.6898 13.75 14.3497 14.1947 15.8131 15.0393C17.2764 15.8839 18.4918 17.0988 19.337 18.5619" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="pt__p">Profile</p>
+        </div>
+
+        <div class="menu__container__items pt__side" [routerLink]="['./settings']">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.0001 15.8126C13.6579 15.8126 15.8126 13.6579 15.8126 11.0001C15.8126 8.34219 13.6579 6.18756 11.0001 6.18756C8.34219 6.18756 6.18756 8.34219 6.18756 11.0001C6.18756 13.6579 8.34219 15.8126 11.0001 15.8126Z" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.5626 10.3126L19.4484 8.98398C19.5061 8.89838 19.5443 8.80113 19.5602 8.69912C19.5761 8.59712 19.5693 8.49286 19.5404 8.39375C19.3733 7.8435 19.1531 7.31081 18.8828 6.8032C18.8333 6.71284 18.7645 6.63452 18.6812 6.57384C18.5979 6.51316 18.5023 6.47161 18.4011 6.45216L16.8338 6.13867L15.8615 5.16642L15.548 3.59903C15.5286 3.49785 15.487 3.4022 15.4264 3.31893C15.3657 3.23565 15.2873 3.1668 15.197 3.1173C14.6893 2.84709 14.1566 2.62689 13.6064 2.4598C13.5073 2.43088 13.403 2.42413 13.301 2.44003C13.199 2.45594 13.1017 2.4941 13.0161 2.55182L11.6876 3.43751H10.3126L8.98407 2.55182C8.89847 2.4941 8.80122 2.45594 8.69921 2.44003C8.59721 2.42413 8.49295 2.43088 8.39385 2.4598C7.84359 2.62689 7.31088 2.84709 6.80325 3.11729C6.71288 3.1668 6.63455 3.23565 6.57386 3.31893C6.51318 3.40221 6.47163 3.49786 6.45218 3.59905L6.13877 5.16633L5.16643 6.13867L3.59913 6.45208C3.49794 6.47153 3.4023 6.51308 3.31902 6.57376C3.23575 6.63444 3.1669 6.71276 3.11739 6.80313C2.84714 7.31077 2.62691 7.84348 2.4598 8.39376C2.43088 8.49286 2.42413 8.59712 2.44004 8.69912C2.45594 8.80112 2.49411 8.89837 2.55183 8.98397L3.43752 10.3125V11.6875L2.55182 13.0161C2.49411 13.1017 2.45595 13.1989 2.44004 13.3009C2.42414 13.4029 2.43089 13.5072 2.45981 13.6063C2.62687 14.1565 2.84707 14.6893 3.1173 15.1969C3.1668 15.2873 3.23565 15.3656 3.31893 15.4263C3.4022 15.4869 3.49784 15.5285 3.59903 15.5479L5.16643 15.8614L6.13868 16.8337L6.4521 18.4011C6.47155 18.5023 6.51309 18.5979 6.57377 18.6812C6.63445 18.7645 6.71277 18.8333 6.80314 18.8828C7.31075 19.1531 7.84345 19.3733 8.39371 19.5403C8.49281 19.5692 8.59705 19.576 8.69905 19.5601C8.80105 19.5442 8.89829 19.506 8.98388 19.4483L10.3125 18.5626H11.6875L13.0161 19.4484C13.1017 19.5061 13.199 19.5443 13.301 19.5602C13.403 19.5761 13.5073 19.5693 13.6064 19.5404C14.1566 19.3733 14.6893 19.1531 15.1969 18.8829C15.2873 18.8334 15.3656 18.7646 15.4263 18.6813C15.487 18.598 15.5285 18.5024 15.548 18.4012L15.8614 16.8338L16.8337 15.8614L18.4011 15.548C18.5023 15.5286 18.5979 15.487 18.6812 15.4263C18.7645 15.3657 18.8333 15.2873 18.8828 15.197C19.1531 14.6894 19.3733 14.1567 19.5404 13.6064C19.5693 13.5073 19.5761 13.4031 19.5602 13.3011C19.5443 13.1991 19.5061 13.1018 19.4484 13.0162L18.5626 11.6876V10.3126Z" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="pt__p">Settings</p>
+        </div>
+        <div class="menu__container__items pt__side" [routerLink]="['./messages']">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.904 15.2108C2.879 13.4829 2.52003 11.4402 2.89451 9.46634C3.26899 7.49248 4.35116 5.72323 5.93781 4.4908C7.52445 3.25836 9.50643 2.64754 11.5116 2.77301C13.5167 2.89849 15.4071 3.75164 16.8277 5.17226C18.2483 6.59288 19.1015 8.48324 19.227 10.4884C19.3525 12.4935 18.7416 14.4755 17.5092 16.0622C16.2768 17.6488 14.5075 18.731 12.5337 19.1055C10.5598 19.48 8.51717 19.121 6.78925 18.096L6.78927 18.0959L3.93988 18.91C3.82199 18.9437 3.69724 18.9453 3.57855 18.9145C3.45986 18.8838 3.35156 18.8218 3.26486 18.7351C3.17817 18.6484 3.11623 18.5401 3.08548 18.4214C3.05473 18.3027 3.05627 18.178 3.08995 18.0601L3.90407 15.2107L3.904 15.2108Z" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <p class="pt__p">Notifications</p>
+        </div>
+
+        <div class="menu__container__items pt__side" (click)="logOut()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9556 7.39062L18.565 11L14.9556 14.6094" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.9375 11H18.5625" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10.3125 18.5625H4.125C3.94266 18.5625 3.7678 18.4901 3.63886 18.3611C3.50993 18.2322 3.4375 18.0573 3.4375 17.875V4.125C3.4375 3.94266 3.50993 3.7678 3.63886 3.63886C3.7678 3.50993 3.94266 3.4375 4.125 3.4375H10.3125" stroke="#004737" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="pt__p">Log Out</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
