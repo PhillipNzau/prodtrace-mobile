@@ -14,11 +14,13 @@ const chatBaseUrl = url + 'chat/';
 
 const cropBaseUrl = farmBaseUrl + 'crop/';
 const farmCropBaseUrl = farmBaseUrl + 'farm-crop/';
-const geoCoderUrl = 'https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=';
+const geoCoderUrl =
+  'https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=';
 // const geoCoderUrl = 'http://139.180.192.124:8080/';
 export const environment = {
   mapbox: {
-    accessToken: 'pk.eyJ1IjoicGhpbGxpcDc4IiwiYSI6ImNsZGJsYzQxcDAxcHMzb3E1NW80Nzg5YWoifQ.4_d9rNJlocMnH6klTZaa9Q',
+    accessToken:
+      'pk.eyJ1IjoicGhpbGxpcDc4IiwiYSI6ImNsZGJsYzQxcDAxcHMzb3E1NW80Nzg5YWoifQ.4_d9rNJlocMnH6klTZaa9Q',
   },
   production: true,
 
@@ -67,7 +69,8 @@ export const environment = {
   listCropActivityQuery: cropCycleQrUrl + '?farm_crop_id',
   listFarmQuery: farmPlantCycleQrUrl + '?farm_id',
 
-
+  //////////////**PPU RULs**/////////////////////////
+  listPpusUrl: url + 'ppu/get_ppu_data/',
 
   ///////////////** CHAT URLS **///////////////////
   listChats: chatBaseUrl,
@@ -77,10 +80,8 @@ export const environment = {
   unRepliedChats: chatBaseUrl + 'un-replied/',
   unReadResponse: chatBaseUrl + 'unread-responce/',
 
-
   // Get location
-  userLocation: geoCoderUrl
-
+  userLocation: geoCoderUrl,
 };
 
 /*

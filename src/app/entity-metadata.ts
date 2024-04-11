@@ -1,4 +1,4 @@
-import {EntityDataModuleConfig, EntityMetadataMap} from "@ngrx/data";
+import { EntityDataModuleConfig, EntityMetadataMap } from '@ngrx/data';
 
 const entityMetadata: EntityMetadataMap = {
   Farms: {},
@@ -8,8 +8,9 @@ const entityMetadata: EntityMetadataMap = {
   FarmCropCycle: {},
   PlantCycle: {},
   Chat: {},
+  Ppu: {},
 };
 
 export const entityConfig: EntityDataModuleConfig = {
-  entityMetadata
-}
+  entityMetadata,
+};
