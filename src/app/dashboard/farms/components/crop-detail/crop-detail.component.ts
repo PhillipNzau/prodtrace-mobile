@@ -118,13 +118,14 @@ export class CropDetailComponent implements OnInit, AfterViewInit {
     if (isDevMode() === true) {
       // this.qrBaseUrl = 'https://staging.avl.local:443/farm-crop-details/' + this.selectedFarmId + '/' + this.selectedFarmCropId
       this.qrBaseUrl =
-        'https://192.168.0.117:4100/farm-crop-details/' +
+        'https://prodtrace-mobile.vercel.app/farm-crop-details/' +
         this.selectedFarmId +
         '/' +
         this.selectedFarmCropId;
     } else {
-      this.qrBaseUrl =
-        'https://mobile.prodtrace.io/farm-crop-details/' +
+      //mobile.prodtrace.io/farm-crop-details/'
+      https: this.qrBaseUrl =
+        'https://prodtrace-mobile.vercel.app/farm-crop-details/' +
         this.selectedFarmId +
         '/' +
         this.selectedFarmCropId;
